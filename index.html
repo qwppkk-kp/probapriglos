@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes, viewport-fit=cover">
+    <title>Алевтина & Михаил | Приглашение на свадьбу</title>
+    <style>
+
+        /* ГРАНИЦЫ ДЛЯ ОТЛАДКИ */
+        /* .mobile-container { border: 3px solid red !important; }
+        .one { border: 2px solid blue !important; }
+        .fullscreen-block { border: 2px solid green !important; }
+        .center-group { border: 2px solid orange !important; }
+        .full-width-line { border: 2px solid purple !important; }
+        .fon { border: 2px solid cyan !important; }
+        .fon2 { border: 2px solid magenta !important; }
+        .fon3 { border: 2px solid yellow !important; }
+        footer { border: 2px solid lime !important; } */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #FFF5D1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            font-family: system-ui, sans-serif;
+        }
+
+        .mobile-container {
+            max-width: 500px;
+            width: 100%;
+            background: #FFF5D1;
+            margin: 0 auto;
+            position: relative;
+            min-height: 100vh;
+        }
+
+        /* БЕЗ MAX-WIDTH — ТЕПЕРЬ КАРТИНКИ МОЖНО УВЕЛИЧИВАТЬ */
+        img {
+            height: auto;
+            display: block;
+        }
+
+        section, .fon, .fon2, .fon3 {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .one {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #FFF5D1;
+            position: relative;
+        }
+
+        .fullscreen-block {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            background: #FFF5D1;
+            width: 100%;
+            padding: 40px 0 30px 0;
+        }
+
+        .fullscreen-block .top-group,
+        .fullscreen-block .center-group {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .full-width-line {
+            width: 100%;
+            overflow: visible;
+        }
+
+        .full-width-line img {
+            width: auto;
+            min-width: 100%;
+            display: block;
+            transform: scaleX(1.12);
+        }
+
+        .fullscreen-block .marquee-wrapper {
+            margin-bottom: 30px;
+        }
+
+        .fullscreen-block .top-group img {
+            margin: 15px 0;
+        }
+
+        .fullscreen-block .center-group img {
+            margin: 15px 0;
+        }
+
+        .marquee-wrapper {
+            width: 100%;
+            overflow: hidden;
+            background: #3E2723;
+            padding: 14px 0;
+        }
+
+        .marquee-text {
+            display: inline-block;
+            white-space: nowrap;
+            animation: marquee 14s linear infinite;
+            font-size: 15px;
+            font-weight: 500;
+            letter-spacing: 1.5px;
+            color: #FFF5D1;
+            font-family: 'Times New Roman', serif;
+            text-transform: uppercase;
+        }
+
+        @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        .swipe-hint {
+            position: absolute;
+            bottom: 20px;
+            left: 0;
+            right: 0;
+            text-align: center;
+            font-size: 12px;
+            color: #b8957a;
+            animation: bounce 1.5s infinite;
+            background: rgba(255, 245, 209, 0.85);
+            width: fit-content;
+            margin: 0 auto;
+            padding: 6px 14px;
+            border-radius: 40px;
+            backdrop-filter: blur(4px);
+            pointer-events: none;
+            z-index: 10;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); opacity: 0.6; }
+            50% { transform: translateY(6px); opacity: 1; }
+        }
+
+        /* СЕКЦИЯ С ЦЕЛЬНОЙ КАРТИНКОЙ */
+        .fon {
+            position: relative;
+            width: 160%;
+            display: flex;
+            right: 120px;
+            justify-content: center;
+        }
+
+        .fon img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        footer {
+            width: 100%;
+            background: #FFF5D1;
+            border-top: 1px solid #f0e0cc;
+            padding: 24px 20px 32px;
+            text-align: center;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            font-size: 14px;
+            color: #7f5a48;
+            font-weight: 500;
+        }
+
+        .footer-line {
+            font-family: 'Times New Roman', serif;
+            text-transform: uppercase;
+            font-size: 13px;
+        }
+
+        @media (max-width: 500px) {
+            .mobile-container {
+                max-width: 100%;
+            }
+            .marquee-text {
+                font-size: 13px;
+            }
+            .fullscreen-block {
+                padding: 30px 0 20px 0;
+            }
+        }
+
+        /* РАЗМЕРЫ КАРТИНОК */
+        .fullscreen-block .top-group img:first-of-type { width: 85%; }
+        .fullscreen-block .top-group img:last-of-type { width: 65%; }
+        .fullscreen-block .center-group img:last-of-type { width: 85%; }
+
+        .telephone6 img,
+        .full-width-line img {
+            width: auto;
+            min-width: 100%;
+        }
+
+        .telephone6 {
+            width: 100%;
+            overflow: visible;
+        }
+
+        .telephone6 img {
+            width: auto;
+            min-width: 100%;
+            display: block;
+            transform: scaleX(1.12);
+        }
+
+        /* ГРАНИЦЫ ПОВЕРХ ВСЕГО */
+        /* .mobile-container::after {
+            content: '' !important;
+            position: absolute !important;
+            top: 0 !important;
+            left: 0 !important;
+            right: 0 !important;
+            bottom: 0 !important;
+            pointer-events: none !important;
+            border: 4px solid red !important;
+            z-index: 99999 !important;
+        }
+        .one::after {
+            content: '' !important;
+            position: absolute !important;
+            top: 0 !important;
+            left: 0 !important;
+            right: 0 !important;
+            bottom: 0 !important;
+            pointer-events: none !important;
+            border: 2px solid blue !important;
+            z-index: 99999 !important;
+        }
+        .fullscreen-block::after {
+            content: '' !important;
+            position: absolute !important;
+            top: 0 !important;
+            left: 0 !important;
+            right: 0 !important;
+            bottom: 0 !important;
+            pointer-events: none !important;
+            border: 2px solid green !important;
+            z-index: 99999 !important;
+        }
+        .center-group::after {
+            content: '' !important;
+            position: absolute !important;
+            top: 0 !important;
+            left: 0 !important;
+            right: 0 !important;
+            bottom: 0 !important;
+            pointer-events: none !important;
+            border: 2px solid orange !important;
+            z-index: 99999 !important;
+        }
+        .full-width-line::after {
+            content: '' !important;
+            position: absolute !important;
+            top: 0 !important;
+            left: 0 !important;
+            right: 0 !important;
+            bottom: 0 !important;
+            pointer-events: none !important;
+            border: 2px solid purple !important;
+            z-index: 99999 !important;
+        }
+        .fon::after {
+            content: '' !important;
+            position: absolute !important;
+            top: 0 !important;
+            left: 0 !important;
+            right: 0 !important;
+            bottom: 0 !important;
+            pointer-events: none !important;
+            border: 2px solid cyan !important;
+            z-index: 99999 !important;
+        }
+        .fon2::after {
+            content: '' !important;
+            position: absolute !important;
+            top: 0 !important;
+            left: 0 !important;
+            right: 0 !important;
+            bottom: 0 !important;
+            pointer-events: none !important;
+            border: 2px solid magenta !important;
+            z-index: 99999 !important;
+        }
+        .fon3::after {
+            content: '' !important;
+            position: absolute !important;
+            top: 0 !important;
+            left: 0 !important;
+            right: 0 !important;
+            bottom: 0 !important;
+            pointer-events: none !important;
+            border: 2px solid yellow !important;
+            z-index: 99999 !important;
+        }
+        footer::after {
+            content: '' !important;
+            position: absolute !important;
+            top: 0 !important;
+            left: 0 !important;
+            right: 0 !important;
+            bottom: 0 !important;
+            pointer-events: none !important;
+            border: 2px solid lime !important;
+            z-index: 99999 !important;
+        } */
+
+
+        /* ТАЙМЕР — СВЕТЛЫЙ ФОН, ТЁМНЫЙ ТЕКСТ */
+.timer-block {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+    position: relative;
+    z-index: 20;
+    margin: 0;
+}
+
+.timer-item {
+    background: #FFF5D1;
+    backdrop-filter: blur(8px);
+    padding: 12px 16px;
+    border-radius: 20px;
+    text-align: center;
+    min-width: 70px;
+    font-family: 'Advent Pro Regular', sans-serif;
+}
+
+.timer-number {
+    font-size: 28px;
+    font-weight: 700;
+    color: #3E2723;
+    display: block;
+}
+
+.timer-label {
+    font-size: 11px;
+    color: #7f5a48;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* ПОДНИМАЕМ КОНТЕНТ ПОВЕРХ ФОНА В FON2 */
+.fon2 .fon-content {
+    position: relative;
+    z-index: 10;
+    margin-top: -530px; /* МЕНЯЙ ЭТО ЧИСЛО ДЛЯ ПОДЪЁМА/ОПУСКАНИЯ */
+}
+
+
+
+    </style>
+</head>
+<body>
+<div class="mobile-container">
+    <section class="one">
+        <div class="telephone1">
+            <img src="image/начало.svg" alt="Открытка приглашение">
+        </div>
+        <div class="swipe-hint">↓ листайте вниз ↓</div>
+    </section>
+
+    <div class="fullscreen-block">
+        <div class="top-group">
+            <div class="marquee-wrapper">
+                <div class="marquee-text">
+                    ✧ ДОРОГИЕ ГОСТИ! ✧ МЫ ЖЕНИМСЯ! ✧ ЖДЁМ ВАС НА НАШЕМ ТОРЖЕСТВЕ ✧ 7 НОЯБРЯ 2026 ✧ 
+                    ✧ ДОРОГИЕ ГОСТИ! ✧ МЫ ЖЕНИМСЯ! ✧ ЖДЁМ ВАС НА НАШЕМ ТОРЖЕСТВЕ ✧ 7 НОЯБРЯ 2026 ✧
+                </div>
+            </div>
+            <img src="image/Мы женимся!.svg" alt="Мы женимся!">
+            <img src="image/Алевтина & Михаил.svg" alt="Алевтина и Михаил">
+        </div>
+
+        <div class="center-group">
+            <div class="full-width-line">
+                <img src="image/линия.svg" alt="линия разделитель">
+            </div>
+            <img src="image/фотки.svg" alt="Наши фотографии">
+            <img src="image/надпись.svg" alt="Приглашение">
+        </div>
+
+        <div class="bottom-music" style="margin-top: 50px;">
+            <img src="image/музыка.svg" alt="музыкальная атмосфера">
+        </div>
+    </div>
+
+    <!-- ТВОЯ ЦЕЛЬНАЯ КАРТИНКА — ТЕПЕРЬ 100% И НЕ ОГРАНИЧЕНА -->
+    <div class="fon">
+        <img src="image/всясекция.svg" alt="">
+    </div>
+    <!-- ТАЙМЕР ДО 07.11.2026 -->
+<div class="timer-block" style="margin-top: -265px;">
+    <div class="timer-item">
+        <span class="timer-number" id="days">00</span>
+        <span class="timer-label">дней</span>
+    </div>
+    <div class="timer-item">
+        <span class="timer-number" id="hours">00</span>
+        <span class="timer-label">часов</span>
+    </div>
+    <div class="timer-item">
+        <span class="timer-number" id="minutes">00</span>
+        <span class="timer-label">минут</span>
+    </div>
+    <div class="timer-item">
+        <span class="timer-number" id="seconds">00</span>
+        <span class="timer-label">секунд</span>
+    </div>
+</div>
+
+    <section class="eight" style="margin-top: 170px; margin-left: -50px;">
+    <div class="telephone8">
+        <img src="image/времятайминга.svg" alt="">
+    </div>
+</section>
+
+    <div class="fon2" style="margin-top: 30px;">
+        <img class="fon-bg" src="image/цветочек.svg" alt="">
+        <div class="fon-content">
+            <section class="nine">
+                <div class="telephone9">
+                    <img src="image/Локация свадьбы.svg" alt="" style="margin-right: 70px; margin-top: 50px;">
+                    <img src="image/локация.svg" alt="" style="margin-left: 90px;">
+                </div>
+            </section>
+
+
+
+
+            <!-- КНОПКА С КАРТОЙ -->
+<section class="map-button-section" style="margin: 20px 0; text-align: left; margin-left: 5px; margin-top: 10px;">
+    <button onclick="openMap()" style="
+        background: #3E2723;
+        color: #FFF5D1;
+        border: none;
+        padding: 14px 28px;
+        border-radius: 50px;
+        font-size: 16px;
+        font-family: 'Advent Pro Light', sans-serif;
+        font-weight: 500;
+        letter-spacing: 1px;
+        cursor: pointer;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        transition: transform 0.2s;
+    " onmouseover="this.style.transform='scale(1.02)'" onmouseout="this.style.transform='scale(1)'">
+        Смотреть на карте
+    </button>
+</section>
+
+
+
+
+
+
+
+
+
+            <section class="ten">
+                <section class="ten">
+    <div class="telephone10" style="margin-top: 45px;">
+    <img src="image/Дресс-код.svg" alt="" style="margin-left: 170px;">
+    <img src="image/Мы будем очень рады, если вы поддержите атмосферу праздника и выберете элегантные наряды в стиле coctail. Для девушек - легкие платья или ко.svg" alt="" style="margin-left: 50px; margin-bottom: -20px;">
+</div>
+</section>
+            </section>
+            <section class="ten second-dress">
+                <div class="telephone10">
+                    <img src="image/гамма.svg" alt="" style="margin-top: 80px;">
+                </div>
+            </section>
+        </div>
+    </div>
+
+
+
+
+    <!-- <div class="fon2" style="display: flex; justify-content: center; margin-top: 0px;">
+    <img class="fon-bg" src="image/группацветочек.svg" alt="" style="width: 140%; height: auto; display: block; position: relative;">
+</div> -->
+
+    <div class="fon3">
+        <img class="fon-bg" src="image/фонпосл.svg" alt="" style="margin-top: 50px;">
+        <div class="fon-content">
+            <section class="eleven">
+                <div class="telephone11">
+                    <img src="image/Пожелания.svg" alt="" style="margin-top: -550px; width: 120%; margin-left: -10%;">
+                    <img src="image/Если хотите подарить нам ценный и нужный подарок, мы будем очень благодарны за вклад в бюджет нашей молодой семьи.svg" alt="" style="margin-top: 25px; margin-left: 10px;">
+                    
+                </div>
+            </section>
+            <section class="twelve">
+                <div class="telephone12">
+                    <img src="image/Так же, в этот важный день мы решили провести в кругу взрослых. Пожалуйста, оставьте маленьких гостей дома. Мы уверены, что вы отлично пр.svg" alt="" style="margin-top: -210px; margin-right: 80px;">
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-line">Поля, 20 лет | 30 мая 2026 (сб) | 14:00</div>
+            <div class="footer-line">design by Polina | 2026</div>
+        </div>
+    </footer>
+</div>
+
+
+
+<script>
+function updateTimer() {
+    const targetDate = new Date(2026, 10, 7, 0, 0, 0); // 07.11.2026
+    const now = new Date();
+    const diff = targetDate - now;
+
+    if (diff <= 0) {
+        document.getElementById('days').innerText = '00';
+        document.getElementById('hours').innerText = '00';
+        document.getElementById('minutes').innerText = '00';
+        document.getElementById('seconds').innerText = '00';
+        return;
+    }
+
+    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((diff % (86400000)) / (1000 * 60 * 60));
+    const minutes = Math.floor((diff % (3600000)) / (1000 * 60));
+    const seconds = Math.floor((diff % (60000)) / 1000);
+
+    document.getElementById('days').innerText = String(days).padStart(2, '0');
+    document.getElementById('hours').innerText = String(hours).padStart(2, '0');
+    document.getElementById('minutes').innerText = String(minutes).padStart(2, '0');
+    document.getElementById('seconds').innerText = String(seconds).padStart(2, '0');
+}
+
+updateTimer();
+setInterval(updateTimer, 1000);
+</script>
+
+
+
+<script>
+function openMap() {
+    // АДРЕС МЕСТА ПРОВЕДЕНИЯ — ЗАМЕНИ НА СВОЙ!
+    const address = "Малышева"; // ← СЮДА ВСТАВЬ СВОЙ АДРЕС
+    
+    // Яндекс.Карты (работает на телефонах)
+    const yandexUrl = `https://yandex.ru/maps/?text=${encodeURIComponent(address)}`;
+    
+    // Google Карты
+    const googleUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(address)}`;
+    
+    // Открываем в новой вкладке (браузер сам выберет карты)
+    window.open(yandexUrl, '_blank');
+}
+</script>
+</body>
+</html>
