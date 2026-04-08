@@ -370,7 +370,17 @@
     margin-top: -530px; /* МЕНЯЙ ЭТО ЧИСЛО ДЛЯ ПОДЪЁМА/ОПУСКАНИЯ */
 }
 
+/* АНИМАЦИЯ ПРИ СКРОЛЛЕ */
+.fade-up {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
 
+.fade-up.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
 
     </style>
 </head>
@@ -383,8 +393,8 @@
         <div class="swipe-hint">↓ листайте вниз ↓</div>
     </section>
 
-    <div class="fullscreen-block">
-        <div class="top-group">
+    <div class="fullscreen-block fade-up">
+        <div class="top-group fade-up">
             <div class="marquee-wrapper">
                 <div class="marquee-text">
                     ✧ ДОРОГИЕ ГОСТИ! ✧ МЫ ЖЕНИМСЯ! ✧ ЖДЁМ ВАС НА НАШЕМ ТОРЖЕСТВЕ ✧ 7 НОЯБРЯ 2026 ✧ 
@@ -409,11 +419,11 @@
     </div>
 
     <!-- ТВОЯ ЦЕЛЬНАЯ КАРТИНКА — ТЕПЕРЬ 100% И НЕ ОГРАНИЧЕНА -->
-    <div class="fon">
+    <div class="fon fade-up">
         <img src="image/всясекция.svg" alt="">
     </div>
     <!-- ТАЙМЕР ДО 07.11.2026 -->
-<div class="timer-block" style="margin-top: -265px;">
+<div class="timer-block fade-up" style="margin-top: -265px;">
     <div class="timer-item">
         <span class="timer-number" id="days">00</span>
         <span class="timer-label">дней</span>
@@ -432,7 +442,7 @@
     </div>
 </div>
 
-    <section class="eight" style="margin-top: 170px; margin-left: -50px;">
+    <section class="eight fade-up" style="margin-top: 170px; margin-left: -50px;">
     <div class="telephone8">
         <img src="image/времятайминга.svg" alt="">
     </div>
@@ -442,7 +452,7 @@
         <img class="fon-bg" src="image/цветочек.svg" alt="">
         <div class="fon-content">
             <section class="nine">
-                <div class="telephone9">
+                <div class="telephone9 fade-up">
                     <img src="image/Локация свадьбы.svg" alt="" style="margin-right: 70px; margin-top: 50px;">
                     <img src="image/локация.svg" alt="" style="margin-left: 90px;">
                 </div>
@@ -452,7 +462,7 @@
 
 
             <!-- КНОПКА С КАРТОЙ -->
-<section class="map-button-section" style="margin: 20px 0; text-align: left; margin-left: 5px; margin-top: 10px;">
+<section class="map-button-section fade-up" style="margin: 20px 0; text-align: left; margin-left: 5px; margin-top: 10px;">
     <button onclick="openMap()" style="
         background: #3E2723;
         color: #FFF5D1;
@@ -481,13 +491,13 @@
 
             <section class="ten">
                 <section class="ten">
-    <div class="telephone10" style="margin-top: 45px;">
+    <div class="telephone10 fade-up" style="margin-top: 45px;">
     <img src="image/Дресс-код.svg" alt="" style="margin-left: 170px;">
     <img src="image/Мы будем очень рады, если вы поддержите атмосферу праздника и выберете элегантные наряды в стиле coctail. Для девушек - легкие платья или ко.svg" alt="" style="margin-left: 50px; margin-bottom: -20px;">
 </div>
 </section>
             </section>
-            <section class="ten second-dress">
+            <section class="ten second-dress fade-up">
                 <div class="telephone10">
                     <img src="image/гамма.svg" alt="" style="margin-top: 80px;">
                 </div>
@@ -506,14 +516,14 @@
         <img class="fon-bg" src="image/фонпосл.svg" alt="" style="margin-top: 50px;">
         <div class="fon-content">
             <section class="eleven">
-                <div class="telephone11">
+                <div class="telephone11 fade-up">
                     <img src="image/Пожелания.svg" alt="" style="margin-top: -550px; width: 120%; margin-left: -10%;">
                     <img src="image/Если хотите подарить нам ценный и нужный подарок, мы будем очень благодарны за вклад в бюджет нашей молодой семьи.svg" alt="" style="margin-top: 25px; margin-left: 10px;">
                     
                 </div>
             </section>
             <section class="twelve">
-                <div class="telephone12">
+                <div class="telephone12 fade-up">
                     <img src="image/Так же, в этот важный день мы решили провести в кругу взрослых. Пожалуйста, оставьте маленьких гостей дома. Мы уверены, что вы отлично пр.svg" alt="" style="margin-top: -210px; margin-right: 80px;">
                 </div>
             </section>
@@ -575,6 +585,20 @@ function openMap() {
     // Открываем в новой вкладке (браузер сам выберет карты)
     window.open(yandexUrl, '_blank');
 }
+</script>
+
+<script>
+// Плавное появление при скролле
+const fadeElements = document.querySelectorAll('.fade-up');
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+        }
+    });
+}, { threshold: 0.1 });
+
+fadeElements.forEach(el => observer.observe(el));
 </script>
 </body>
 </html>
